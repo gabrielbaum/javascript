@@ -4,8 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TESTE JAVASCRIPT</title>
+    <style>
+        h1 {
+            color: rgb(5, 21, 26);
+            text-shadow: 3px 3px 15px rgb(8, 49, 7);
+        }
+        
+    </style>
 </head>
 <body>
+    
+
+    
 
 
     <script>
@@ -15,8 +25,15 @@
         var n2 = 67
         var s = n2 - n1 
         window.alert(`com ${n1} anos só restam ${s} para se aposentar, não desista !`)
-        window.confirm( 'é corinthiano (a) ?')
-        window.alert ('Se for, já sabe o que importa na vida, se não for, lamento ')
+        document.write ('<h1>Bem vindo ao site</h1>')
+        
+        
+        var n3 = window.prompt('digite o valor em Euros')
+        var n4 = 6.32
+        var resultado = n3 * n4
+        window.alert( `${n3} Euros lhe dará exatamente : ${resultado} Reais !`)
+        
+        
 
 
     </script>
