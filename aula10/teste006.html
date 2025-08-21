@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanterna
+    </title>
+    <style>
+
+    body{ 
+    margin:0;
+    overflow:hidden;
+    height:100vh;
+    background:url(20200903_223058200_iOS.jpg) no-repeat center/cover;
+
+    }
+
+
+    #overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle 100px at 50% 50%, rgba(0, 0, 0, 0.788) 0%, rgba(0, 0, 0, 0.944) 80%);
+    pointer-events:none;
+    
+        }
+
+
+    </style>
+</head>
+<body>
+
+  <div id="overlay"></div>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    document.addEventListener('mousemove', e => {
+      overlay.style.background = 
+      `radial-gradient(circle 250px at ${e.pageX}px ${e.pageY}px, rgba(0,0,0,0) 0%, rgba(0,0,0,0.944) 80%)`;
+      
+    });
+  </script>
+
+    
+</body>
+</html>
