@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Calculadora Simples</h1>
+<div id="calc1">
+    
+            <input type="number" name="n1" id="n1" class="ip" >
+            <button id="adicao">+</button>
+            <button id="subtracao">-</button>
+            <button id="multiplicacao">X</button>
+            <button id="divisao">÷</button>
+            <input type="number" name="n2" id="n2" class="ip">
+            <strong>=</strong>
+            <input type="number" name="res" id="res" class="ip" readonly>
+            <button id="limpar">Limpar</button>
+    
+</div>
+<h1>Porcentagens</h1>
+<div id="calc2">
+
+    <input type="number" name="%1" id="%1" class="ip" >
+    <button id="porcentagem">%</button>
+    de
+    <input type="number" name="%2" id="%2" class="ip">
+    <strong>=</strong>
+    <input type="number" name="res%" id="res%" class="ip" readonly>
+    <button id="limpar2">Limpar</button>
+
+</div>
+
+    
+
+    <script>
+
+     function porcento(){
+
+         var p1 = parseFloat (document.getElementById("%1").value);
+
+        var p2 = parseFloat (document.getElementById("%2").value);
+
+        var resp = (p2 / 100) * p1
+        document.getElementById("res%").value = resp;
+        porcentagem.style.backgroundColor = "red";
+
+     }
+        
+        
+    function adicao(){
+
+         var n1 = parseFloat (document.getElementById("n1").value);
+
+        var n2 = parseFloat (document.getElementById("n2").value);
+
+        var res = n1 + n2;
+        document.getElementById("res").value = res;
+        somar.style.backgroundColor = "red";
+        
+    }
+
+    function subtracao(){
+
+        var n1 = parseFloat (document.getElementById("n1").value);
+
+        var n2 = parseFloat (document.getElementById("n2").value);
+
+        var res = n1 - n2;
+        document.getElementById("res").value = res;
+        subtrair.style.backgroundColor = "red";
+        
+    }
+
+    function multiplicacao(){
+
+        var n1 = parseFloat (document.getElementById("n1").value);
+
+        var n2 = parseFloat (document.getElementById("n2").value);
+
+        var res = n1 * n2;
+        document.getElementById("res").value = res;
+        multiplicar.style.backgroundColor = "red";
+        
+    }
+    function divisao(){
+
+        var n1 = parseFloat (document.getElementById("n1").value);
+
+        var n2 = parseFloat (document.getElementById("n2").value);
+
+        var res = n1 / n2;
+        document.getElementById("res").value = res;
+        dividir.style.backgroundColor = "red";
+        
+    }
+    function limpar(){
+
+        
+        document.getElementById("n1").value = "";
+        document.getElementById("n2").value = "";
+        document.getElementById("res").value = "";
+        reset.style.backgroundColor = "lightgreen";
+        somar.style.backgroundColor = "lightgreen";
+        subtrair.style.backgroundColor = "lightgreen";
+        multiplicar.style.backgroundColor = "lightgreen";
+        dividir.style.backgroundColor = "lightgreen";
+
+      
+
+
+    }
+    function limpar2(){
+
+        document.getElementById("res%").value = "";
+        document.getElementById("%1").value = "";
+        document.getElementById("%2").value = "";
+        reset2.style.backgroundColor = "lightgreen";
+        porcentagem.style.backgroundColor = "lightgreen";
+
+    }
+
+
+     var porcentagem = document.querySelector("#porcentagem");
+    porcentagem.addEventListener("click", porcento);
+     
+     var somar = document.querySelector("#adicao");
+     somar.addEventListener("click", adicao,);
+
+     var subtrair = document.querySelector("#subtracao");
+     subtrair.addEventListener("click", subtracao);
+
+     var multiplicar = document.querySelector("#multiplicacao");
+     multiplicar.addEventListener("click", multiplicacao);
+
+     var dividir = document.querySelector("#divisao");
+     dividir.addEventListener("click", divisao);
+
+     var reset = document.querySelector("#limpar");
+     reset.addEventListener("click", limpar);
+
+     var reset2 = document.querySelector("#limpar2");
+     reset2.addEventListener("click", limpar2);
+
+
+    </script>
+    
+</body>
+</html>
