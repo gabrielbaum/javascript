@@ -1,0 +1,106 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f8ff;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #ff6600;
+}
+
+#imagem {
+  width: 100%;
+  max-width: 400px;
+  height: 220px; /* altura fixa */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  overflow: hidden;
+}
+
+#img-principal {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 4px solid #333;
+  border-radius: 16px;
+}
+
+#opcoes {
+  min-height: 140px; /* altura reservada para não pular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#opcoes button {
+  display: block;
+  width: 200px;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #ffd700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#opcoes button:hover {
+  background-color: #ffeb3b;
+}
+
+#progresso, #pontuacao {
+  font-weight: bold;
+  margin: 10px;
+}
+
+.confete {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  animation: cair 1s linear;
+}
+
+@keyframes cair {
+  to {
+    transform: translateY(500px);
+    opacity: 0;
+  }
+}
+
+.acertou {
+  border: 4px solid green;
+}
+
+.errou {
+  border: 4px solid red;
+}
+
+.tela-final {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+.tela-final button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
