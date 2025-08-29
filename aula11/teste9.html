@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+    <style>
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+}
+main {
+    background-color: grey;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    text-align: center;
+    border: 5px solid white;
+    border-radius: 15px;
+    margin-top: 80px;
+    
+    
+}
+
+h1 {
+    text-align: center;
+    color: rgb(10, 11, 2);
+    text-shadow: 2px 2px 5px black;
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+
+input {
+    border-radius: 5px;
+    border: 0px;
+}
+button {
+    border-radius: 5px;
+    background-color: rgba(3, 3, 3, 0.309);
+    border: 0px;
+}
+
+    button:hover {
+
+        scale: 1.1;
+        transition: 0.3s;
+       
+    }
+
+
+    </style>
+</head>
+<body>
+    <main id="main">
+        <h1>Radar 80 Km/h</h1>
+        <input type="number" name="vel1" id="vel1" placeholder="km/h" >
+        <button type="button" onclick="verificar()">Verificar</button>
+        <button type="button" onclick="reset()">Reset</button>
+        
+        <div id="res">
+        </div>
+    </main>
+<script>
+
+document.getElementById("vel1").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            verificar();
+        }
+    });
+
+
+
+function verificar () {
+var placa = document.getElementById("main")
+var vel = parseFloat (document.getElementById("vel1").value)
+
+var res = document.getElementById("res")
+res.innerHTML =`<p>Sua velocidade é de ${vel} Km/h</p>`
+ if (vel > 80) {
+    var multa = (vel - 80 ) * 7
+    res.innerHTML += ` Você ultrapassou o limite de velocidade em : ${vel - 80} Km/h, Sua multa é de € ${multa.toFixed(2)}` 
+    placa.style.backgroundColor = "#ff0000"
+ } else { 
+    res.innerHTML += ` Você está dentro do limite de velocidade, Dirija com segurança!`
+    placa.style.backgroundColor = "green"
+}
+
+
+}
+ function reset(){
+    var limpar = document.getElementById("vel1").value = ""
+    var limpar2 = document.getElementById("res").innerHTML = ""
+    document.getElementById("main").style.backgroundColor = "grey"
+ }
+
+
+</script>
+</body>
+</html>
