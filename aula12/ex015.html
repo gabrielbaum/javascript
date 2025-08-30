@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de idade</title>
+
+    <style>
+        body { 
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(85, 188, 243);
+        }
+        main {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(255, 255, 255);
+            margin: auto;
+            border-radius: 10px;
+            text-align: center;
+
+        }
+        h1 {
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+        p {
+            font-size: 20px;
+            margin: 30px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Verificador de Idade</h1>
+
+    <main>
+        <p>Ano de Nascimento  <input type="number" placeholder="ex : 1990" id="nasc"></p>
+        <p> Sexo : <input type="checkbox" name="masc" id="masc" onclick="marcarUm(this)">Masculino   <input type="checkbox" name="fem" id="fem" onclick="marcarUm(this)">Feminino</p>
+        <p><button onclick="verificar()">Verificar</button><button onclick="limpar()">Limpar</button> </p>
+        <p id="res"></p> 
+
+    </main>
+    <script>
+
+        document.getElementById("nasc").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            verificar();
+        }
+    });
+        
+    function marcarUm(checkbox) {
+  if (checkbox.id === 'masc') {
+    document.getElementById('fem').checked = false;
+  } else {
+    document.getElementById('masc').checked = false;
+  }
+}
+
+
+
+        function verificar() {
+        const mascu = document.getElementById('masc')
+        const femi = document.getElementById('fem')     
+        const ano = document.querySelector('input[type=number]')
+        const res = document.getElementById('res')
+        const data = new Date()
+        const anoatual = data.getFullYear()
+        const idade = anoatual - Number(ano.value)
+
+        if (femi.checked && idade >=0 && idade < 120) {
+            if(idade < 12) {
+                res.innerHTML = `Você é uma menina de ${idade} anos <br>`
+            } else if(idade < 18 ) {
+                res.innerHTML = `Você é uma adolescente de ${idade} anos <br>`
+            } else if(idade < 50 ) {
+                res.innerHTML = `Você é uma mulher de ${idade} anos <br>`
+            } else if(idade >= 50 ) {
+                res.innerHTML = `Você é uma senhora idosa de ${idade} anos <br>`
+            }
+        } else if ( mascu.checked && idade >=0 && idade <120) {
+            if (idade < 12) {
+                res.innerHTML = `Você é um menino de ${idade} anos <br>`
+            } else if(idade < 18 ) {
+                res.innerHTML = `Você é um adolescente de ${idade} anos <br>`
+            } else if(idade < 50 ) {
+                res.innerHTML = `Você é um homem de ${idade} anos <br>`
+            } else if(idade >= 50 ) {
+                res.innerHTML = `Você é um senhor idoso de ${idade} anos <br>`
+            }   
+        }
+        
+        else {
+            res.innerHTML = `[ERRO] Verifique os dados e tente novamente!`
+        }}
+
+        function limpar() {
+            document.getElementById('nasc').value = ''
+            document.getElementById('masc').checked = false
+            document.getElementById('fem').checked = false
+            document.getElementById('res').innerHTML = ''
+        }
+
+    </script>
+</body>
+</html>
