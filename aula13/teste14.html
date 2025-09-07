@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passos</title>
+</head>
+<body>
+    <h1>
+        Contagem de passos
+    </h1>
+    <div>
+        <p >Início : <input type="number" name="inicioi" id="inicioi"></p>
+        <p >Fim : <input type="number" name="fimi" id="fimi"></p>
+        <p >Passos : <input type="number" name="passosi" id="passosi"></p>
+        <button id="contari" onclick="contar()">Contar</button>
+        <button id="zerari" onclick="zerar()">Zerar</button>
+    </div>
+    <div>
+        <p id="resultadoi">resultado: </p>
+    </div>
+
+
+    <script>
+        function contar() {
+            let inicio = document.getElementById("inicioi");
+            let fim = document.getElementById("fimi");
+            let passos = document.getElementById("passosi");
+            let resultado = document.getElementById("resultadoi");
+
+            if ( inicio.value.length == 0 || fim.value.length ==0 || passos.value.length == 0) {
+                resultado.innerHTML = `Impossível contar, verifique os dados e tente novamente !`
+            }
+            
+            for (let i = Number(inicio.value); i < Number(fim.value); i += Number(passosi.value)) 
+            resultado.innerHTML +=`  👉  ${i}`
+
+        }
+        
+        function zerar() {
+            let inicio = document.getElementById("inicioi");
+            let fim = document.getElementById("fimi");
+            let passos = document.getElementById("passosi");
+            let resultado = document.getElementById("resultadoi");
+
+            inicio.value = '';
+            fim.value = '';
+            passos.value = '';
+            resultado.innerHTML = 'resultado: ';
+        }
+
+    </script>
+    
+</body>
+</html>

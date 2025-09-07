@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #357ae3;
+            
+        }
+        div {
+            width: 500px;
+            height: 300px;
+            background-color: #ffffff;
+            margin: auto;
+            margin-top: 100px;
+            border-radius: 15px;
+        }
+        input {
+            width: 200px;
+            height: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: 1px solid black;
+            font-size: 15px;
+            text-align: center;
+            box-shadow: 2px 2px 2px rgba(25, 17, 116, 0.622);
+        }
+        button {
+            width: 100px;
+            height: 25px;
+            margin-left: 10px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: 0px;
+            font-size: 15px;
+            text-align: center;
+            background-color: #100e48;
+            color: #ffffff;
+        }
+        button:hover {
+            background-color: #3198d8;
+            color: #02063e;
+            cursor: pointer;
+            box-shadow: 5px 3px 3px rgba(11, 4, 90, 0.637);
+            scale: 1.1;
+            transition: 0.3s;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Passos</title>
+</head>
+<body>
+    <div>
+        <input type="number" id="inicio" placeholder="Digite o início da contagem">Início<br>
+
+     
+
+        <input type="number" id="passos" placeholder="Digite o passo que deseja ">Passos<br>
+
+        <input type="number" id="fim" placeholder="Digite o fim da contagem">Fim<br>
+
+        <button id="calcular" onclick="calcular()">Calcular</button>
+        <button id="apagar" onclick="apagar()">Apagar</button>
+
+    </div>
+    <p id="resposta">
+
+    </p>
+
+    <script>
+        const binicio = document.getElementById("inicio");
+        const bpassos = document.getElementById("passos");
+        const bfim = document.getElementById("fim");
+        const bresposta = document.getElementById("resposta");
+        const bapagar = document.getElementById("apagar");
+
+        function calcular() {
+            let inicio = Number(binicio.value);
+            let passos = Number(bpassos.value);
+            let fim = Number(bfim.value);
+
+            // Verifica se o início é menor que o fim
+            if (inicio >= fim) {
+                bresposta.innerHTML = "⚠️ O início deve ser menor que o fim!";
+                return;
+            }
+
+            // Verifica se o passo é maior que 0
+            if (passos <= 0) {
+                bresposta.innerHTML = "⚠️ O passo deve ser maior que 0!";
+                return;
+            }
+
+            bresposta.innerHTML = ""; // limpa o resultado anterior
+
+            // Loop para contar
+            for (let i = inicio; i < fim; i += passos) {
+                bresposta.innerHTML += i + " ";
+            }
+        }
+
+        function apagar() {
+            binicio.value = "";
+            bpassos.value = "";
+            bfim.value = "";
+            bresposta.innerHTML = "";
+        }
+    </script>
+</body>
+</html>
